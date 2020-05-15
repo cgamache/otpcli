@@ -1,0 +1,35 @@
+{
+    "name": "otpcli",
+    "version": "1.0.0",
+    "description": "Sets/Gets OTP secrets from OSX keychain and pops out a 6-digit SHA1 TOTP (30 second interval) code",
+    "main": "src/index.js",
+    "bin": "dist/index.js",
+    "private": true,
+    "scripts": {
+        "run": "babel-node src/index.js",
+        "build": "babel src -d dist",
+        "test": "mocha --require @babel/polyfill --require @babel/register 'src/**/*.spec.js'",
+        "pkg": "pkg ./dist/index.js -o ./dist/otpcli"
+    },
+    "author": "Chris Gamache (chrisgamachecodes@gmail.com)",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "mocha": "^7.1.2",
+        "should": "^13.2.3"
+    },
+    "dependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/plugin-transform-runtime": "^7.9.6",
+        "@babel/polyfill": "^7.8.7",
+        "@babel/preset-env": "^7.9.6",
+        "@babel/register": "^7.9.0",
+        "crypto-js": "^4.0.0",
+        "faker": "^4.1.0",
+        "keychain": "^1.3.0",
+        "moment": "^2.25.1"
+    },
+    "pkg": {
+        "scripts": "./dist/**/*.js"
+    }
+}
